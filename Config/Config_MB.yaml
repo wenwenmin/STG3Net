@@ -1,0 +1,30 @@
+data:
+  dataset: MB
+  k_cutoff: 9
+  top_genes: 3000
+mode: clustering
+model:
+  dic_hidden: 64
+  feat_hidden1: 64
+  feat_hidden2: 32
+  gcn_hidden: 64
+  latent_dim: 16
+  mask_rate: 0.5
+  mask_method: spot
+  p_drop: 0.2
+  t: 2
+seed: 3407
+train:
+  d_step: 1
+  decay: 0.001
+  epochs: 1000
+  g_step: 1
+  gradient_clipping: 5.0
+  knn_neigh: 50
+  lr: 0.001
+  plot_step: 5
+  start_step: 500
+  t_step: 50
+  w_disc: 0.1
+  w_recon: 0.7
+  w_tri: 0.5
