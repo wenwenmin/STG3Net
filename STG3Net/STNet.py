@@ -1,11 +1,6 @@
-import os
-import torch
 import torch.nn.modules.loss
 from tqdm import tqdm
 from torch.backends import cudnn
-from sklearn.metrics import adjusted_rand_score as ari_score
-import pandas as pd
-import scanpy as sc
 
 from .Module import *
 from .Utils import *
@@ -161,7 +156,7 @@ class G3net:
         latent_emb = self.autoencoder.embeding(self.X, self.adj_norm)
 
         self.adata.obsm['latent'] = latent_emb.data.cpu().numpy()
-        key_pred = 'tmp_domain'
+        key_pred = 'Tmp_domain'
         self.adata = self.clustering(self.adata, num_cluster=self.num_cluster, used_obsm='latent', key_added_pred=key_pred, method=method, random_seed=random_seed)
 
         gnn_dict = create_dictionary_gnn(self.adata, use_rep='latent', use_label=key_pred, batch_name='batch_name', k=self.train_config['knn_neigh'], verbose=verbose)
